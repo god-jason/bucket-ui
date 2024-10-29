@@ -6,5 +6,9 @@ import { icons } from './icons-provider';
 import { provideNzIcons } from 'ng-zorro-antd/icon';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideNzIcons(icons)]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideNzIcons(icons),
+  ]
 };
