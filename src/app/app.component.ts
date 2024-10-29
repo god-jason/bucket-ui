@@ -6,16 +6,21 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
-    BrowserModule,
-    RouterLink, RouterOutlet,
-    NzIconModule, NzLayoutModule,
-    NzMenuModule],
+    RouterLink,
+    RouterOutlet,
+    NzIconModule,
+    NzLayoutModule,
+    NzMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

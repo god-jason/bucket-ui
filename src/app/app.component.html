@@ -1,34 +1,41 @@
 <nz-layout class="app-layout">
   <nz-sider class="menu-sidebar"
     nzCollapsible
-    nzWidth="256px"
+    nzWidth="200px"
     nzBreakpoint="md"
     [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
+      <a href="https://docs.busycloud.cn/" target="_blank">
+        <img src="logo.svg" alt="logo">
+        <h1>Bucket</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="控制台" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
+          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+            <a routerLink="/dash">首页</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <li nz-submenu nzOpen nzTitle="数据仓库" nzIcon="database">
         <ul>
+          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+            <a routerLink="/table">数据表</a>
+          </li>
+<!--          <li nz-menu-item nzMatchRouter nzMatchRouterExact>-->
+<!--            <a routerLink="/table/create">新建</a>-->
+<!--          </li>-->
           <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+            <a>空间使用</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="设置" nzIcon="setting">
+        <ul>
+          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+            <a>设置</a>
           </li>
         </ul>
       </li>
