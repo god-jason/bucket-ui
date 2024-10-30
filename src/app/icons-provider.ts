@@ -7,6 +7,11 @@ import {
   DatabaseOutline,
   UserOutline,
   LockOutline,
+  FunctionOutline,
+  EditOutline,
+  EllipsisOutline,
+  EyeOutline,
+  ReloadOutline,
 } from '@ant-design/icons-angular/icons';
 
 export const icons = [
@@ -14,4 +19,9 @@ export const icons = [
   DashboardOutline, FormOutline,
   SettingOutline,DatabaseOutline,
   UserOutline, LockOutline,
+  FunctionOutline,
+  EditOutline,
+  EllipsisOutline,
+  EyeOutline,
+  ReloadOutline,
 ];

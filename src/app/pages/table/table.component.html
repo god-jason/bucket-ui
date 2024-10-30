@@ -1,1 +1,39 @@
-<p>table works!</p>
+<div nz-row [nzGutter]="[10, 10]">
+  @for (tab of tables; track tab.name) {
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="4" [nzXXl]="3">
+      <nz-card
+        [nzTitle]="tab.label"
+        [nzCover]="coverTemplate"
+        [nzActions]="[actionView, actionEdit, actionMore]"
+      >
+
+      </nz-card>
+    </div>
+  }
+</div>
+
+<ng-template #coverTemplate>
+  <img alt="example" src="database.png"/>
+</ng-template>
+
+<ng-template #actionView>
+  <span nz-icon nzType="eye"></span>
+</ng-template>
+<ng-template #actionEdit>
+  <span nz-icon nzType="edit"></span>
+</ng-template>
+<ng-template #actionMore>
+  <span nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nz-icon nzType="ellipsis"></span>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item>
+        <span nz-icon nzType="delete"></span>
+        删除
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="reload"></span>
+        重新加载
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</ng-template>
