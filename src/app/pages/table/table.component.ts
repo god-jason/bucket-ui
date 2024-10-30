@@ -4,6 +4,7 @@ import {NzCardComponent} from 'ng-zorro-antd/card';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
 import {NzDropDownDirective, NzDropdownMenuComponent} from 'ng-zorro-antd/dropdown';
 import {NzMenuDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -16,7 +17,8 @@ import {NzMenuDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
     NzDropDownDirective,
     NzDropdownMenuComponent,
     NzMenuDirective,
-    NzMenuItemComponent
+    NzMenuItemComponent,
+    RouterLink
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'

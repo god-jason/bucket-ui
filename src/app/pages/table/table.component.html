@@ -8,32 +8,33 @@
       >
 
       </nz-card>
+
+      <ng-template #actionView>
+        <span nz-icon nzType="eye" [routerLink]="[tab.name]"></span>
+      </ng-template>
+      <ng-template #actionEdit>
+        <span nz-icon nzType="edit" [routerLink]="[tab.name, 'edit']"></span>
+      </ng-template>
+      <ng-template #actionMore>
+        <span nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nz-icon nzType="ellipsis"></span>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item>
+              <span nz-icon nzType="delete"></span>
+              删除
+            </li>
+            <li nz-menu-item>
+              <span nz-icon nzType="reload"></span>
+              重新加载
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+      </ng-template>
+
     </div>
   }
 </div>
 
 <ng-template #coverTemplate>
   <img alt="example" src="database.png"/>
-</ng-template>
-
-<ng-template #actionView>
-  <span nz-icon nzType="eye"></span>
-</ng-template>
-<ng-template #actionEdit>
-  <span nz-icon nzType="edit"></span>
-</ng-template>
-<ng-template #actionMore>
-  <span nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nz-icon nzType="ellipsis"></span>
-  <nz-dropdown-menu #menu="nzDropdownMenu">
-    <ul nz-menu>
-      <li nz-menu-item>
-        <span nz-icon nzType="delete"></span>
-        删除
-      </li>
-      <li nz-menu-item>
-        <span nz-icon nzType="reload"></span>
-        重新加载
-      </li>
-    </ul>
-  </nz-dropdown-menu>
 </ng-template>
