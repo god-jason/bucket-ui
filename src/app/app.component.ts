@@ -5,6 +5,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NzDropDownDirective, NzDropdownMenuComponent} from 'ng-zorro-antd/dropdown';
+import {UserService} from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +20,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NzMenuModule,
     FormsModule,
     ReactiveFormsModule,
+    NzDropDownDirective,
+    NzDropdownMenuComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   isCollapsed = false;
+
+  constructor(protected us: UserService) {
+  }
 }

@@ -9,6 +9,9 @@ import {NzColDirective} from 'ng-zorro-antd/grid';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NzNotificationService} from 'ng-zorro-antd/notification';
 import {SmartRequestService} from '@god-jason/smart';
+import {Md5} from 'ts-md5';
+import {Router} from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -35,8 +38,10 @@ export class LoginComponent {
   group: FormGroup;
 
   constructor(formBuilder: FormBuilder,
+              private router: Router,
               private ns: NzNotificationService,
               private rs: SmartRequestService,
+              private us: UserService,
               ) {
     this.group = formBuilder.group({
       username: ['admin', Validators.required],
@@ -57,8 +62,14 @@ export class LoginComponent {
       return
     }
 
-    this.rs.post("admin/login", this.group.value).subscribe(res => {
+    let obj = this.group.value
+    this.rs.post("admin/login", {...obj, password: Md5.hashStr(obj.password)}).subscribe(res => {
       console.log("login", res)
+      if (res.error) {
+        return
+      }
+      this.us.set(res.data)
+      this.router.navigateByUrl('admin/dash')
     })
   }
 }

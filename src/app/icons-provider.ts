@@ -12,6 +12,7 @@ import {
   EllipsisOutline,
   EyeOutline,
   ReloadOutline,
+  LogoutOutline,
 } from '@ant-design/icons-angular/icons';
 
 export const icons = [
@@ -24,4 +25,5 @@ export const icons = [
   EllipsisOutline,
   EyeOutline,
   ReloadOutline,
+  LogoutOutline,
 ];

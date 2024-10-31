@@ -6,7 +6,7 @@
     <form nz-form [formGroup]="group" (ngSubmit)="submit()">
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="6">账号</nz-form-label>
+        <nz-form-label [nzSpan]="4">账号</nz-form-label>
         <nz-form-control [nzSpan]="14">
           <nz-input-group nzPrefixIcon="user">
             <input formControlName="username" type="text" nz-input placeholder="账号"/>
@@ -15,7 +15,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="6">密码</nz-form-label>
+        <nz-form-label [nzSpan]="4">密码</nz-form-label>
         <nz-form-control [nzSpan]="14">
           <nz-input-group nzPrefixIcon="lock">
             <input formControlName="password" type="password" nz-input placeholder="密码" autofocus />
