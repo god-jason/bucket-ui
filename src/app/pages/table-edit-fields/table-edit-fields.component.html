@@ -1,1 +1,3 @@
-<p>table-edit-fields works!</p>
+<button nz-button (click)="save()">保存</button>
+
+<smart-editor #editor [fields]="fields" [values]="values" (change)="onChange($event)"></smart-editor>

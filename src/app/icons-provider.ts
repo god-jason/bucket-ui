@@ -13,6 +13,10 @@ import {
   EyeOutline,
   ReloadOutline,
   LogoutOutline,
+  PlusOutline,
+  DragOutline,
+  CopyOutline,
+  DeleteOutline,
 } from '@ant-design/icons-angular/icons';
 
 export const icons = [
@@ -26,4 +30,8 @@ export const icons = [
   EyeOutline,
   ReloadOutline,
   LogoutOutline,
+  PlusOutline,
+  DragOutline,
+  CopyOutline,
+  DeleteOutline,
 ];
