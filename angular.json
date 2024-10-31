@@ -55,6 +55,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/ng-zorro-antd/resizable/style/entry.less",
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
             ],
             "scripts": []

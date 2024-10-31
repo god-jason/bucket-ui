@@ -1,1 +1,24 @@
-<p>table-edit works!</p>
+<div class="editor">
+  <div class="menu" nz-resizable [style.width]="width+'px'" (nzResize)="onResize($event)">
+    <nz-resize-handles [nzDirections]="['right']"></nz-resize-handles>
+
+    <ul nz-menu nzMode="inline">
+      <li nz-menu-item nzMatchRouter routerLink="fields">字段</li>
+      <li nz-menu-item nzMatchRouter routerLink="accumulations">累加器</li>
+      <li nz-menu-item nzMatchRouter routerLink="json" [queryParams]="{file: 'schema.json'}">JSON Schema</li>
+      <li nz-submenu nzOpen nzTitle="脚本">
+        <ul>
+          <li nz-menu-item nzMatchRouter routerLink="js" [queryParams]="{file: 'before.insert.js'}">插入前</li>
+          <li nz-menu-item nzMatchRouter routerLink="js" [queryParams]="{file: 'after.insert.js'}">插入后</li>
+          <li nz-menu-item nzMatchRouter routerLink="js" [queryParams]="{file: 'before.update.js'}">修改前</li>
+          <li nz-menu-item nzMatchRouter routerLink="js" [queryParams]="{file: 'after.update.js'}">修改后</li>
+          <li nz-menu-item nzMatchRouter routerLink="js" [queryParams]="{file: 'before.delete.js'}">删除前</li>
+          <li nz-menu-item nzMatchRouter routerLink="js" [queryParams]="{file: 'after.delete.js'}">删除后</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

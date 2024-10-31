@@ -14,14 +14,14 @@
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="控制台" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+          <li nz-menu-item nzMatchRouter>
             <a routerLink="dash">首页</a>
           </li>
         </ul>
       </li>
       <li nz-submenu nzTitle="数据仓库" nzIcon="database">
         <ul>
-          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+          <li nz-menu-item nzMatchRouter>
             <a routerLink="table">数据表</a>
           </li>
           <li nz-menu-item nzMatchRouter>
@@ -31,7 +31,7 @@
       </li>
       <li nz-submenu nzTitle="函数计算" nzIcon="function">
         <ul>
-          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+          <li nz-menu-item nzMatchRouter>
             <a routerLink="function">接口</a>
           </li>
           <li nz-menu-item nzMatchRouter>
@@ -41,7 +41,7 @@
       </li>
       <li nz-submenu nzTitle="设置" nzIcon="setting">
         <ul>
-          <li nz-menu-item nzMatchRouter nzMatchRouterExact>
+          <li nz-menu-item nzMatchRouter>
             <a>设置</a>
           </li>
         </ul>

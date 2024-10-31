@@ -1,0 +1,12 @@
+
+.editor {
+  display: flex;
+  background: white;
+
+  .menu {
+    width: 200px;
+  }
+  .content{
+    flex: 1;
+  }
+}
