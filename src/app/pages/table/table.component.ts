@@ -5,6 +5,7 @@ import {NzIconDirective} from 'ng-zorro-antd/icon';
 import {NzDropDownDirective, NzDropdownMenuComponent} from 'ng-zorro-antd/dropdown';
 import {NzMenuDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
 import {RouterLink} from '@angular/router';
+import {SmartRequestService} from '@god-jason/smart';
 
 @Component({
   selector: 'app-table',
@@ -34,4 +35,14 @@ export class TableComponent {
     {name:"test6", label:"测试表6"},
     {name:"test7", label:"测试表7"},
   ]
+
+  constructor(private rs: SmartRequestService) {
+    this.load()
+  }
+
+  load(){
+    this.rs.get("table/list").subscribe(res=>{
+      console.log(res)
+    })
+  }
 }
