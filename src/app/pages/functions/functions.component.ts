@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 
 @Component({
-  selector: 'app-function',
+  selector: 'app-functions',
   standalone: true,
   imports: [
     NzColDirective,
     NzRowDirective
   ],
-  templateUrl: './function.component.html',
-  styleUrl: './function.component.scss'
+  templateUrl: './functions.component.html',
+  styleUrl: './functions.component.scss'
 })
-export class FunctionComponent {
+export class FunctionsComponent {
 
 }

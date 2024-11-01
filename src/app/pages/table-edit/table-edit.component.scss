@@ -8,5 +8,9 @@
   }
   .content{
     flex: 1;
+    padding: 10px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }

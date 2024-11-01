@@ -4,7 +4,7 @@ import {UserService} from './user.service';
 import {inject} from '@angular/core';
 
 export const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/login'},
+  {path: '', pathMatch: 'full', redirectTo: '/admin'},
   {path: 'login', component: LoginComponent},
   {
     path: 'admin',

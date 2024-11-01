@@ -19,13 +19,18 @@
         <span nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nz-icon nzType="ellipsis"></span>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
+<!--            <li nz-menu-item>-->
+<!--              <span nz-icon nzType="reload"></span>-->
+<!--              重新加载-->
+<!--            </li>-->
+            <li nz-menu-item>
+              <span nz-icon nzType="edit"></span>
+              重命名
+            </li>
+            <li nz-menu-divider></li>
             <li nz-menu-item>
               <span nz-icon nzType="delete"></span>
               删除
-            </li>
-            <li nz-menu-item>
-              <span nz-icon nzType="reload"></span>
-              重新加载
             </li>
           </ul>
         </nz-dropdown-menu>

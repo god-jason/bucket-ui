@@ -3,12 +3,12 @@ import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 import {NzCardComponent} from 'ng-zorro-antd/card';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
 import {NzDropDownDirective, NzDropdownMenuComponent} from 'ng-zorro-antd/dropdown';
-import {NzMenuDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
+import {NzMenuDirective, NzMenuDividerDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
 import {RouterLink} from '@angular/router';
 import {SmartRequestService} from '@god-jason/smart';
 
 @Component({
-  selector: 'app-table',
+  selector: 'app-tables',
   standalone: true,
   imports: [
     NzRowDirective,
@@ -19,12 +19,13 @@ import {SmartRequestService} from '@god-jason/smart';
     NzDropdownMenuComponent,
     NzMenuDirective,
     NzMenuItemComponent,
-    RouterLink
+    RouterLink,
+    NzMenuDividerDirective
   ],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+  templateUrl: './tables.component.html',
+  styleUrl: './tables.component.scss'
 })
-export class TableComponent {
+export class TablesComponent {
 
   tables: any[] = []
 
