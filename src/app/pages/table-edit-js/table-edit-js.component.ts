@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {SmartRequestService} from '@god-jason/smart';
 import {ActivatedRoute} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {CodeMirrorComponent} from 'ng-codemirror';
+import {NzButtonComponent} from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-table-edit-js',
   standalone: true,
   imports: [
     FormsModule,
-    CodeMirrorComponent
+    CodeMirrorComponent,
+    NzButtonComponent
   ],
   templateUrl: './table-edit-js.component.html',
   styleUrl: './table-edit-js.component.scss'
@@ -30,10 +32,20 @@ export class TableEditJsComponent {
     cursorBlinkRate: 500 // hide cursor
   };
 
-  constructor(private rs: SmartRequestService, private route: ActivatedRoute) {
+  querySub: any
 
+  constructor(private rs: SmartRequestService, private route: ActivatedRoute) {
+    //route.queryParams
+    this.querySub = route.parent?.queryParams.subscribe((param: any) => {
+      console.log("query updatev", param)
+      this.file = param.file;
+      this.load()
+    })
   }
 
+  ngOnDestroy(): void {
+    this.querySub.unsubscribe()
+  }
 
   ngOnInit(): void {
     this.table = this.route.snapshot.parent?.params['id'];
@@ -42,15 +54,14 @@ export class TableEditJsComponent {
   }
 
   load() {
-    this.rs.get(`table/${this.table}/conf/${this.file}`).subscribe(res=>{
-      console.log("get", res)
-      this.code = res
-    })
+    this.rs.request("GET", `table/${this.table}/conf/${this.file}`, {responseType: 'text'})
+      .subscribe(res => {
+        this.code = res
+      })
   }
 
   save() {
-    console.log(this.table, "fields", this.code);
-    this.rs.post(`table/${this.table}/conf/${this.file}`, this.code).subscribe(res=>{
+    this.rs.post(`table/${this.table}/conf/${this.file}`, this.code).subscribe(res => {
 
     })
   }

@@ -1,1 +1,6 @@
-<p>table-edit-json works!</p>
+<button nz-button (click)="save()">保存</button>
+
+<ng-codemirror
+  [options]="options"
+  [(ngModel)]="code"
+></ng-codemirror>

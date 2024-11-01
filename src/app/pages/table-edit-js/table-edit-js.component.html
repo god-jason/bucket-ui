@@ -1,4 +1,6 @@
+<button nz-button (click)="save()">保存</button>
+
 <ng-codemirror
   [options]="options"
-  [ngModel]="code"
+  [(ngModel)]="code"
 ></ng-codemirror>
