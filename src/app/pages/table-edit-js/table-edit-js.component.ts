@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import {NzCodeEditorComponent} from 'ng-zorro-antd/code-editor';
 import {SmartRequestService} from '@god-jason/smart';
 import {ActivatedRoute} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {CodeMirrorComponent} from 'ng-codemirror';
 
 @Component({
   selector: 'app-table-edit-js',
   standalone: true,
   imports: [
-    NzCodeEditorComponent,
-    FormsModule
+    FormsModule,
+    CodeMirrorComponent
   ],
   templateUrl: './table-edit-js.component.html',
   styleUrl: './table-edit-js.component.scss'
@@ -20,6 +20,15 @@ export class TableEditJsComponent {
 
   table = ''
   file = ''
+
+  options = {
+    lineNumbers: true,
+    readOnly: false, // nocursor can not copy
+    mode: 'javascript',
+    autofocus: true,
+    lineWiseCopyCut: true,
+    cursorBlinkRate: 500 // hide cursor
+  };
 
   constructor(private rs: SmartRequestService, private route: ActivatedRoute) {
 

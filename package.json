@@ -20,6 +20,7 @@
     "@angular/router": "^18.2.0",
     "@god-jason/smart": "^1.0.6",
     "monaco-editor": "^0.52.0",
+    "ng-codemirror": "^18.1.0-next.1",
     "ng-zorro-antd": "^18.1.1",
     "rxjs": "~7.8.0",
     "ts-md5": "^1.3.1",
