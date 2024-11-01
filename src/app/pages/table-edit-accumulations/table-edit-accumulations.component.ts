@@ -1,7 +1,8 @@
-import {Component, ViewChild} from '@angular/core';
-import {NzButtonComponent} from "ng-zorro-antd/button";
-import {SmartEditorComponent, SmartField, SmartRequestService} from "@god-jason/smart";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {SmartEditorComponent, SmartField, SmartRequestService} from '@god-jason/smart';
+import {NzButtonComponent} from 'ng-zorro-antd/button';
 import {ActivatedRoute} from '@angular/router';
+import {NzNotificationService} from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-table-edit-accumulations',
@@ -15,7 +16,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class TableEditAccumulationsComponent {
   fields: SmartField[] = [{
-    key: 'name',
+    key: 'none',
     type: 'list',
     label: '',
     children: [
@@ -39,7 +40,10 @@ export class TableEditAccumulationsComponent {
 
   @ViewChild("editor") editor!: SmartEditorComponent;
 
-  constructor(private rs: SmartRequestService, private route: ActivatedRoute) {
+  constructor(private rs: SmartRequestService,
+              private route: ActivatedRoute,
+              private ns: NzNotificationService,
+              ) {
 
   }
 
@@ -53,19 +57,15 @@ export class TableEditAccumulationsComponent {
   load() {
     this.rs.get(`table/${this.table}/conf/accumulations.json`).subscribe(res => {
       console.log("get", res)
-      this.values = res
+      this.values = {none:res}
     })
   }
 
   save() {
     console.log(this.table, "accumulations", this.editor.value);
-    this.rs.post(`table/${this.table}/conf/accumulations.json`, JSON.stringify(this.editor.value)).subscribe(res => {
-
+    this.rs.post(`table/${this.table}/conf/accumulations.json`, JSON.stringify(this.editor.value.none)).subscribe(res => {
+      this.ns.success("提示", "保存成功")
     })
-  }
-
-  onChange($event: any) {
-    console.log("change", $event);
   }
 
 }

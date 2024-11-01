@@ -1,8 +1,8 @@
 <div nz-row [nzGutter]="[10, 10]">
-  @for (tab of tables; track tab.name) {
+  @for (tab of tables; track tab.id) {
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="4" [nzXXl]="3">
       <nz-card
-        [nzTitle]="tab.label"
+        [nzTitle]="tab.name || tab.id"
         [nzCover]="coverTemplate"
         [nzActions]="[actionView, actionEdit, actionMore]"
       >
@@ -10,10 +10,10 @@
       </nz-card>
 
       <ng-template #actionView>
-        <span nz-icon nzType="eye" [routerLink]="[tab.name]"></span>
+        <span nz-icon nzType="eye" [routerLink]="[tab.id]"></span>
       </ng-template>
       <ng-template #actionEdit>
-        <span nz-icon nzType="edit" [routerLink]="[tab.name, 'edit']"></span>
+        <span nz-icon nzType="edit" [routerLink]="[tab.id, 'edit']"></span>
       </ng-template>
       <ng-template #actionMore>
         <span nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nz-icon nzType="ellipsis"></span>

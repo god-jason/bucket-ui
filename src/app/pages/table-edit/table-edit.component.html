@@ -3,6 +3,7 @@
     <nz-resize-handles [nzDirections]="['right']"></nz-resize-handles>
 
     <ul nz-menu nzMode="inline">
+      <li nz-menu-item nzMatchRouter routerLink="info">信息</li>
       <li nz-menu-item nzMatchRouter routerLink="fields">字段</li>
       <li nz-menu-item nzMatchRouter routerLink="accumulations">累加器</li>
       <li nz-menu-item nzMatchRouter routerLink="json" [queryParams]="{file: 'schema.json'}">JSON Schema</li>
