@@ -1,3 +1,5 @@
+<button nz-button (click)="onCreate()">创建</button>
+
 <div nz-row [nzGutter]="[10, 10]">
   @for (tab of tables; track tab.id) {
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="6" [nzXl]="4" [nzXXl]="3">
@@ -23,7 +25,7 @@
 <!--              <span nz-icon nzType="reload"></span>-->
 <!--              重新加载-->
 <!--            </li>-->
-            <li nz-menu-item>
+            <li nz-menu-item (click)="onRename(tab)">
               <span nz-icon nzType="edit"></span>
               重命名
             </li>

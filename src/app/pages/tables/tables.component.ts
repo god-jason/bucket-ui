@@ -6,6 +6,9 @@ import {NzDropDownDirective, NzDropdownMenuComponent} from 'ng-zorro-antd/dropdo
 import {NzMenuDirective, NzMenuDividerDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
 import {RouterLink} from '@angular/router';
 import {SmartRequestService} from '@god-jason/smart';
+import {NzModalModule, NzModalService} from 'ng-zorro-antd/modal';
+import {TableEditNameComponent} from '../table-edit-name/table-edit-name.component';
+import {NzButtonComponent} from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-tables',
@@ -20,7 +23,9 @@ import {SmartRequestService} from '@god-jason/smart';
     NzMenuDirective,
     NzMenuItemComponent,
     RouterLink,
-    NzMenuDividerDirective
+    NzMenuDividerDirective,
+    NzModalModule,
+    NzButtonComponent,
   ],
   templateUrl: './tables.component.html',
   styleUrl: './tables.component.scss'
@@ -29,7 +34,7 @@ export class TablesComponent {
 
   tables: any[] = []
 
-  constructor(private rs: SmartRequestService) {
+  constructor(private rs: SmartRequestService, private ms: NzModalService) {
     this.load()
   }
 
@@ -37,6 +42,25 @@ export class TablesComponent {
     this.rs.get("table/list").subscribe(res => {
       console.log(res)
       this.tables = res.data
+    })
+  }
+
+  onRename(tab: any) {
+    this.ms.create<TableEditNameComponent, any>({
+      nzTitle: '重命名',
+      nzContent: TableEditNameComponent,
+      nzData: {id: tab.id},
+    }).afterClose.subscribe(res=>{
+      if (res) this.load()
+    })
+  }
+
+  onCreate() {
+    this.ms.create<TableEditNameComponent, any>({
+      nzTitle: '创建',
+      nzContent: TableEditNameComponent,
+    }).afterClose.subscribe(res=>{
+      if (res) this.load()
     })
   }
 }
